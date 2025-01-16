@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio - Lanchonete da Suzy</title>
+    <link rel="stylesheet" href="styleMENU.css">
+    <script src="scriptMENU.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Lanchonete da Suzy</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="menu.html">Cardápio</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="menu">
+            <h2>Cardápio</h2>
+            <div class="menu-item">
+                <img src="burger.jpg" alt="Hambúrguer Artesanal">
+                <div class="item-details">
+                    <h3>Monte seu Hambúrguer Artesanal</h3>
+                    <p>Escolha o pão, carne, queijo e extras para montar o hambúrguer perfeito.</p>
+                    <button onclick="showBurgerForm()">Personalizar</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="fries.jpg" alt="Batata Frita">
+                <div class="item-details">
+                    <h3>Batata Frita</h3>
+                    <p>Deliciosas batatas fritas crocantes.</p>
+                    <button onclick="addToOrder('Batata Frita')">Adicionar</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="onion_rings.jpg" alt="Onion Rings">
+                <div class="item-details">
+                    <h3>Onion Rings</h3>
+                    <p>Anéis de cebola empanados e crocantes.</p>
+                    <button onclick="addToOrder('Onion Rings')">Adicionar</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="caesar_salad.jpg" alt="Salada Caesar">
+                <div class="item-details">
+                    <h3>Salada Caesar</h3>
+                    <p>Salada fresca com molho Caesar.</p>
+                    <button onclick="addToOrder('Salada Caesar')">Adicionar</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="chocolate_milkshake.jpg" alt="Milkshake de Chocolate">
+                <div class="item-details">
+                    <h3>Milkshake de Chocolate</h3>
+                    <p>Milkshake cremoso de chocolate.</p>
+                    <button onclick="addToOrder('Milkshake de Chocolate')">Adicionar</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="strawberry_milkshake.jpg" alt="Milkshake de Morango">
+                <div class="item-details">
+                    <h3>Milkshake de Morango</h3>
+                    <p>Milkshake cremoso de morango.</p>
+                    <button onclick="addToOrder('Milkshake de Morango')">Adicionar</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="soda.jpg" alt="Refrigerante">
+                <div class="item-details">
+                    <h3>Refrigerante</h3>
+                    <p>Refrigerante gelado.</p>
+                    <button onclick="addToOrder('Refrigerante')">Adicionar</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="juice.jpg" alt="Suco Natural">
+                <div class="item-details">
+                    <h3>Suco Natural</h3>
+                    <p>Suco natural de frutas.</p>
+                    <button onclick="addToOrder('Suco Natural')">Adicionar</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="tapioca.jpg" alt="Tapioca de Vários Sabores">
+                <div class="item-details">
+                    <h3>Tapioca de Vários Sabores</h3>
+                    <p>Escolha entre sabores como coco, queijo, carne seca, e muito mais.</p>
+                    <button onclick="addToOrder('Tapioca de Vários Sabores')">Adicionar</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="cuscuz.jpg" alt="Cuscuz Recheado">
+                <div class="item-details">
+                    <h3>Cuscuz Recheado</h3>
+                    <p>Cuscuz recheado com carne, queijo, ou frango.</p>
+                    <button onclick="addToOrder('Cuscuz Recheado')">Adicionar</button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="pudim.jpg" alt="Pudim">
+                <div class="item-details">
+                    <h3>Pudim</h3>
+                    <p>Pudim de leite condensado, uma sobremesa clássica e deliciosa.</p>
+                    <button onclick="addToOrder('Pudim')">Adicionar</button>
+                </div>
+            </div>
+            <h3>Seu Pedido</h3>
+            <ul id="order-list"></ul>
+            <button onclick="finalizeOrder()">Finalizar Pedido</button>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Lanchonete da Suzy. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Modal para Personalização do Hambúrguer -->
+    <div id="burger-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeBurgerForm()">×</span>
+            <h3>Monte seu Hambúrguer Artesanal</h3>
+            <form id="burger-form">
+                <label for="pao">Escolha o Pão:</label>
+                <select id="pao" name="pao">
+                    <option value="brioche">Brioche</option>
+                    <option value="integral">Integral</option>
+                    <option value="australiano">Australiano</option>
+                </select>
+                <br>
+                <label for="carne">Escolha a Carne:</label>
+                <select id="carne" name="carne">
+                    <option value="bovina">Bovina</option>
+                    <option value="frango">Frango</option>
+                    <option value="vegetariano">Vegetariano</option>
+                </select>
+                <br>
+                <label for="queijo">Escolha o Queijo:</label>
+                <select id="queijo" name="queijo">
+                    <option value="cheddar">Cheddar</option>
+                    <option value="mussarela">Mussarela</option>
+                    <option value="suíço">Suíço</option>
+                </select>
+                <br>
+                <label for="extras">Extras:</label>
+                <br>
+                <input type="checkbox" id="bacon" name="extras" value="bacon">
+                <label for="bacon">Bacon</label>
+                <br>
+                <input type="checkbox" id="ovo" name="extras" value="ovo">
+                <label for="ovo">Ovo</label>
+                <br>
+                <input type="checkbox" id="cebola" name="extras" value="cebola">
+                <label for="cebola">Cebola Caramelizada</label>
+                <br>
+                <input type="checkbox" id="alface" name="extras" value="alface">
+                <label for="alface">Alface</label>
+                <br>
+                <input type="checkbox" id="tomate" name="extras" value="tomate">
+                <label for="tomate">Tomate</label>
+                <br>
+                <input type="submit" value="Adicionar ao Pedido">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

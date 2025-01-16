@@ -1,0 +1,178 @@
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff8e1;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #ffcc00;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    color: #d32f2f;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+main {
+    padding: 20px;
+}
+
+.menu h2 {
+    color: #d32f2f;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #fff3e0;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu-item img {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.item-details {
+    flex: 1;
+}
+
+.item-details h3 {
+    margin: 0;
+    color: #ff5722;
+}
+
+.item-details p {
+    margin: 5px 0;
+}
+
+.item-details button {
+    background-color: #d32f2f;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.item-details button:hover {
+    background-color: #b71c1c;
+}
+
+footer {
+    background-color: #ffcc00;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Estilos do Modal */
+.modal {
+    display: none; /* Oculto por padrão */
+    position: fixed; /* Fica em posição fixa */
+    z-index: 1; /* Fica no topo */
+    left: 0;
+    top: 0;
+    width: 100%; /* Largura total */
+    height: 100%; /* Altura total */
+    overflow: auto; /* Habilita rolagem se necessário */
+    background-color: rgb(0,0,0); /* Cor de fundo */
+    background-color: rgba(0,0,0,0.4); /* Preto com opacidade */
+}
+
+.modal-content {
+    background-color: #fff3e0;
+    margin: 15% auto; /* 15% do topo e centralizado */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Pode variar conforme o tamanho da tela */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+@media (min-width: 600px) {
+    .menu{
+        display: block;
+    }
+    .menu-hamburguer .menu-icon{
+        display: none;
+    }
+    .header-container{
+        flex-direction: row;
+    }
+    .search-bar{
+        flex: 1;
+        text-align: right;
+    }
+    .content article{
+        max-width: 45%;
+    }
+    .sidebar{
+        max-width: 25%;
+    }
+}
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .content article, .sidebar {
+        width: 90%;
+    }
+    .search-bar {
+        width: 100%;
+        text-align: right;
+        margin-top: 10px;
+    }
+    footer {
+        position: static;
+    }
+}
